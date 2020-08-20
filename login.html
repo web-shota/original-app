@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyChat</title>
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!--bootstrap css-->
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+  </head>
+  
+  <body>
+    <div id="loginSec">
+      <div class="contents logoBox">
+        <div id="logo-left">
+          <img src="./images/logo-main.png" alt="Logo" width="350" height="350">
+          <img src="./images/logo-title.png" alt="title" width="450" height="150">
+          <!--<h1>WAKABA</h1>-->
+        </div>
+      </div> <!--.logoBox-->
+      
+      <div class="contents loginBox d-flex flex-column justify-content-center align-items-center">
+        <div id="logoTitle">
+          <img src="./images/logo-sub.png" alt="Logo" width="100" height="100">
+          <img src="./images/sub-title.png" alt="title" width="200" height="70">
+          <!--<h2>WAKABA</h2>-->
+        </div>
+        
+        <section id="login" class="view">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-sm-10 col-md-8 col-lg-8">
+              <form id="login-form">
+                <div id="login__email" class="form-group">
+                  <label for="login-email" class="col-form-label mt-4">
+                    メールアドレス
+                  </label>
+                  <div>
+                    <input id="login-email" type="email" class="form-control" required>
+                  </div>
+                </div>
+                <div id="login__password" class="form-group">
+                  <label for="login-password" class="col-form-label mt-4">
+                    パスワード
+                  </label>
+                  <div>
+                    <input id="login-password" type="password" class="form-control" required>
+                    <p class="form-text text-white pb-4">
+                      ※初めての方は、登録するメールアドレスとパスワードを入力してください
+                    </p>
+                  </div>
+                </div>
+    
+                <div id="login__help" class="alert alert-danger"></div>
+                
+                <div class="form-group login__submit">
+                  <div>
+                    <button id="login__submit-button" type="submit" class="btn btn-light btn-md btn-block">
+                      ログイン
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+        
+      </div> <!--.loginBox-->
+    </div> <!--#loginSec-->
+    
+  <!-- チャット画面 -->
+  <section id="chat" class="view">
+
+    <!-- ナビゲーションバー -->
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light py-md-1">
+      <div class="container">
+
+        <!-- ホームリンク -->
+        <a href="./index.html" class="navbar-text" aria-label="ホーム">
+          <i class="fa fa-home fa-lg"></i>
+        </a>
+
+        <!-- 画面幅が狭い時に表示されるハンバーガーメニュー -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <div class="navbar-nav mr-auto">
+            <div class="nav-item dropdown ml-md-3">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle room-list-menu" href="#" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ルーム
+              </a>
+              <div id="room-list" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="#createRoomModal" class="dropdown-item craete-room-link" data-toggle="modal">新しいルームを作成</a>
+                <a id="delete-room-menuitem" href="#deleteRoomModal" class="dropdown-item"
+                  data-toggle="modal">現在のルームを削除</a>
+                <div role="separator" class="dropdown-divider"></div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-nav dropdown">
+            <div class="nav-item">
+              <a href="#" id="navbarRightDropdown" class="nav-link dropdown-toggle menu-profile py-0"
+                data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span id="menu-profile-name" class="mr-2"></span>
+                <img id="menu-profile-image" src="img/default-profile-image.png" width="46" height="46" alt="プロフィール画像">
+              </a>
+              <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="navbarRightDropdown">
+                <a class="dropdown-item room-settings-link" data-toggle="modal" href="#settingsModal">
+                  設定
+                </a>
+                <a class="dropdown-item favorites-list-link" data-toggle="modal" href="#favoritesListModal">お気に入り一覧</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a id="logout__link" href="#" class="dropdown-item">ログアウト</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- メッセージ表示部 -->
+    <div id="message-list" class="clearfix"></div>
+
+    <!-- メッセージ投稿フォーム -->
+    <form id="comment-form">
+      <div class="input-group">
+        <input id="comment-form__text" type="text" class="form-control form-control-lg">
+        <span class="input-group-append">
+          <button type="submit" class="btn btn-lg btn-secondary comment-form__submit" aria-label="送信">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </span>
+      </div>
+      <!-- /.input-group -->
+    </form>
+    <!-- /#comment-form -->
+  </section>
+  <!-- /#chat -->
+    
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+  
+<script>
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyCywiNFXHPSsMArEvH4F3N91cFQaDgLg88",
+  authDomain: "chat-app-97b35.firebaseapp.com",
+  databaseURL: "https://chat-app-97b35.firebaseio.com",
+  projectId: "chat-app-97b35",
+  storageBucket: "chat-app-97b35.appspot.com",
+  messagingSenderId: "617261756784",
+  appId: "1:617261756784:web:ba5acd8890f7d9a5eadfb5",
+  measurementId: "G-E30PKXB98S"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+</script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Popper.js, 次に Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- 外部ライブラリ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+<!-- js File -->
+<script type="text/javascript" src="js/login.js"></script>
+  </body>
+</html>

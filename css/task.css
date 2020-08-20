@@ -1,0 +1,60 @@
+body {
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-size: 1.5rem;
+}
+
+.container {
+  width: 400px;
+  margin: auto;
+}
+
+#app h1 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding: 16px 0;
+}
+
+#app h1 > button {
+  float: right;
+}
+
+#app li {
+  line-height: 1.5;
+}
+
+#app li > span.done {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+#app ul {
+  padding: 0;
+  list-style: none;
+}
+
+#app input[type="text"] {
+  padding: 5px;
+}
+
+#app input[type="submit"] {
+  margin-left: 10px;
+  padding: 2px 10px;
+}
+
+#app button {
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+
+.command {
+  font-size: 12px;
+  cursor: pointer;
+  color: #08c;
+  padding-left: 10px;
+}
+
+.info {
+  color: #bbb;
+  font-size: 12px;
+  font-weight: normal;
+}

@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+}
+
+#loginSec {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.contents {
+  width: 50%;
+  height: 100vh;
+  font-family: "M PLUS Rounded 1c";
+}
+.logoBox {
+  background: #F8F3F0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logo-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Nico Moji";
+}
+#logo-left h1 {
+  font-size: 4rem;
+  color: #455b3d;
+}
+.loginBox {
+  /*background: #9FC4C0;*/
+  background: #98B391;
+  color: #fff;
+}
+#logoTitle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Nico Moji";
+}
+
+/*login*/
+#login__help {
+  display: none;
+}
+
+

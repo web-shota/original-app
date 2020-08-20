@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/task.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+</head>
+<body>
+  <div id="app" class="container">
+    <h1>
+      <button @click="purge">完了済タスクの削除</button>
+      今日やる。
+      <span class="info">({{ remaining.length }}/{{ todos.length }})</span>
+    </h1>
+    <ul v-if="todos.length">
+      <li v-for="(todo, index) in todos">
+        <input type="checkbox" v-model="todo.isDone">
+        <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+        <span @click="deleteItem(index)" class="command">[削除]</span>
+        </li>
+    </ul>
+    <ul v-else>
+      <li>頑張るぞ。</li>
+    </ul>
+    <form @submit.prevent="addItem" @submit="checkForm">
+      <input type="text"　placeholder="タスク" v-model="newItem">
+      <input type="submit" value="追加">
+    </form>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript" src="js/task.js"></script>
+</body>
+</html>
